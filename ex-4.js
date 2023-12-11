@@ -374,4 +374,14 @@ const bills = [
 ];
 
 // Start coding here
-const totalMembers;
+const memberNotNull = bills.filter((bills) => {
+  return bills.member !== null;
+});
+const noSameMember = [];
+const memberNotSame = memberNotNull.filter((memberNotNull) => {
+  if (!noSameMember.includes(memberNotNull.member.name)) {
+   return noSameMember.push(memberNotNull.member.name);
+  }
+});
+const totalMembers = memberNotSame.length
+console.log(`Unique Members Count: ${totalMembers}`);

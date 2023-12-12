@@ -374,4 +374,13 @@ const bills = [
 ];
 
 // Start coding here
-const totalMembers;
+
+const memberNames = bills.reduce((names, bill) => {
+  if (bill.member && bill.member.name) {
+    names.add(bill.member.name);
+  }
+  return names;
+}, new Set());
+
+const totalMembers = memberNames.size;
+console.log(`Unique Members Count: ${totalMembers}`);
